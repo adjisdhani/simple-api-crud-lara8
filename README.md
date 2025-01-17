@@ -1,64 +1,193 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Simple Laravel 8 CRUD API
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This is a simple Laravel 8 CRUD API project for managing a collection of books. It demonstrates basic CRUD operations, including creating, reading, updating, and deleting data, with endpoints accessible via RESTful API.
 
-## About Laravel
+## Features
+- View all books (GET `/api/books`)
+- View a single book by ID (GET `/api/books/{id}`)
+- Create a new book (POST `/api/books`)
+- Update a book (PUT `/api/books/{id}`)
+- Delete a book (DELETE `/api/books/{id}`)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Requirements
+- PHP 7.4 or higher
+- Composer
+- Laravel 8
+- MySQL or MariaDB
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Installation
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/adjisdhani/simple-api-crud-lara8.git
 
-## Learning Laravel
+2. **Navigate to the project directory**:
+   ```bash
+   cd simple-api-crud-lara8
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+3. **Install dependencies**:
+   ```bash
+   composer install
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+4. **Copy .env.example to .env**:
+   ```bash
+   cp .env.example .env
 
-## Laravel Sponsors
+5. **Configure the .env file**:
+   ```bash
+    DB_CONNECTION=mysql
+	DB_HOST=127.0.0.1
+	DB_PORT=3306
+	DB_DATABASE=simple_api_crud_lara8
+	DB_USERNAME=root
+	DB_PASSWORD=yourpassword
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+6. **Generate the application key**:
+   ```bash
+    php artisan key:generate
 
-### Premium Partners
+7. **Run the database migrations**:
+   ```bash
+    php artisan migrate
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+8. **(Optional) Seed the database with dummy data**:
+   ```bash
+    php artisan db:seed
 
-## Contributing
+9. **Start the development server**:
+   ```bash
+    php artisan serve
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+10. **Access the API**:
+   (http://127.0.0.1:8000/api/books)
 
-## Code of Conduct
+      ## API Endpoints 
+    
+    **1. Get All Books**
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+    - Method: GET
+    - Endpoint: /api/books
+    - Description: Retrieve a list of all books.
 
-## Security Vulnerabilities
+    **Example Response**:
+       ```bash
+       [
+    	    {
+    	        "id": 1,
+    	        "title": "Data Title 1",
+    	        "author": "Data Author 1",
+    	        "published_year": 99999,
+    	        "genre": "Data Genre 1",
+    	        "summary": "Data Summary 1"
+    	    }
+    	]
+       ```
+    
+    **2. Get a Single Book by ID**
+    
+    - Method: GET
+    - Endpoint: /api/books/{id}
+    - Description: Retrieve a single book by its ID.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+    **Example Response**:
+       ```bash
+       [
+    	    {
+    	        "id": 1,
+    	        "title": "Data Title 1",
+    	        "author": "Data Author 1",
+    	        "published_year": 99999,
+    	        "genre": "Data Genre 1",
+    	        "summary": "Data Summary 1"
+    	    }
+    	]
+       ```
+    
+    **3. Create a New Book**
+    
+    - Method: POST
+    - Endpoint: /api/books
+    - <b>Body Parameters:</b>
+      1. title (string, required)
+      2. author (string, required)
+      3. published_year (integer, required)
+      4. genre (string, required)
+      5. summary (string, optional)
 
-## License
+    **Example Request**:
+       ```bash
+       [
+    	    {
+    	        "title": "Data Title 2",
+    	        "author": "Data Author 2",
+    	        "published_year": 99999,
+    	        "genre": "Data Genre 2",
+    	        "summary": "Data Summary 2"
+    	    }
+    	]
+       ```
+    **Example Response**:
+       ```bash
+       [
+    	    {
+    	        "id"   : 2,
+    	        "title": "Data Title 2",
+    	        "author": "Data Author 2",
+    	        "published_year": 99999,
+    	        "genre": "Data Genre 2",
+    	        "summary": "Data Summary 2"
+    	    }
+    	]
+       ```
+    **4. Update a Book**
+    
+    - Method: PUT
+    - Endpoint: /api/books
+    - <b>Body Parameters:</b>
+      1. title (string, required)
+      2. author (string, required)
+      3. published_year (integer, required)
+      4. genre (string, required)
+      5. summary (string, optional)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    **Example Request**:
+       ```bash
+       [
+    	    {
+                "title": "1984 (Updated Edition)",
+                "published_year": 1950
+            }
+
+    	]
+       ```
+    **Example Response**:
+       ```bash
+       [
+    	    {
+                "id": 2,
+                "title": "1984 (Updated Edition)",
+                "author": "Data Author 2",
+                "published_year": 1950,
+                "genre": "Data Genre 2",
+    	        "summary": "Data Summary 2"
+            }
+    	]
+       ```
+    **4. Delete a Book**
+    
+    - Method: DELETE
+    - Endpoint: /api/books
+    
+    **Example Response**:
+       ```bash
+       [
+    	    {
+                "message": "Book deleted successfully."
+            }
+    	]
+       ```
+    ## Author
+    Adjis Ramadhani Utomo
+
+    ## License
+    This project is licensed under the [MIT license](https://opensource.org/licenses/MIT).
