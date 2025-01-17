@@ -20,18 +20,22 @@ This is a simple Laravel 8 CRUD API project for managing a collection of books. 
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/adjisdhani/simple-api-crud-lara8.git
+   ```
 
 2. **Navigate to the project directory**:
    ```bash
    cd simple-api-crud-lara8
+   ```
 
 3. **Install dependencies**:
    ```bash
    composer install
+   ```
 
 4. **Copy .env.example to .env**:
    ```bash
    cp .env.example .env
+   ```
 
 5. **Configure the .env file**:
    ```bash
@@ -41,22 +45,27 @@ This is a simple Laravel 8 CRUD API project for managing a collection of books. 
 	DB_DATABASE=simple_api_crud_lara8
 	DB_USERNAME=root
 	DB_PASSWORD=yourpassword
+   ```
 
 6. **Generate the application key**:
    ```bash
     php artisan key:generate
+    ```
 
 7. **Run the database migrations**:
    ```bash
     php artisan migrate
+    ```
 
 8. **(Optional) Seed the database with dummy data**:
    ```bash
     php artisan db:seed
+    ```
 
 9. **Start the development server**:
    ```bash
     php artisan serve
+    ```
 
 10. **Access the API**:
    (http://127.0.0.1:8000/api/books)
